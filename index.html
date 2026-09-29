@@ -1,466 +1,457 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <title>Happy Birthday Doraemon 🎂❤️</title>
+<title>Happy Birthday Doraemon 🎂❤️</title>
 
-  <style>
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
+<style>
+*{
+  box-sizing:border-box;
+  margin:0;
+  padding:0;
+}
 
-    body {
-      font-family: Arial, sans-serif;
-      background: linear-gradient(135deg, #dff6ff, #ffe6f2);
-      color: #333;
-      text-align: center;
-      min-height: 100vh;
-      overflow-x: hidden;
-    }
+body{
+  font-family:Arial,sans-serif;
+  background:linear-gradient(135deg,#dff6ff,#ffe6f2);
+  color:#333;
+  text-align:center;
+  min-height:100vh;
+  overflow-x:hidden;
+}
 
-    .container {
-      width: 92%;
-      max-width: 850px;
-      margin: auto;
-      padding: 35px 15px;
-    }
+.container{
+  width:92%;
+  max-width:900px;
+  margin:auto;
+  padding:30px 15px;
+}
 
-    .card {
-      background: rgba(255,255,255,0.92);
-      border-radius: 25px;
-      padding: 30px 20px;
-      margin-bottom: 25px;
-      box-shadow: 0 10px 30px rgba(0,0,0,0.12);
-    }
+.card{
+  background:rgba(255,255,255,.94);
+  border-radius:25px;
+  padding:30px 20px;
+  margin-bottom:25px;
+  box-shadow:0 10px 30px rgba(0,0,0,.12);
+}
 
-    h1 {
-      font-size: 38px;
-      color: #168bd0;
-      margin-bottom: 18px;
-    }
+h1{
+  font-size:38px;
+  color:#168bd0;
+  margin-bottom:18px;
+}
 
-    h2 {
-      color: #ff4f91;
-      margin-bottom: 15px;
-    }
+h2{
+  color:#ff4f91;
+  margin-bottom:15px;
+}
 
-    p {
-      font-size: 18px;
-      line-height: 1.7;
-    }
+p{
+  font-size:18px;
+  line-height:1.7;
+}
 
-    .highlight {
-      font-size: 23px;
-      font-weight: bold;
-      color: #ff4081;
-      margin: 20px 0;
-    }
+.highlight{
+  font-size:23px;
+  font-weight:bold;
+  color:#ff4081;
+  margin:20px 0;
+}
 
-    button {
-      border: none;
-      background: linear-gradient(135deg, #168bd0, #ff4f91);
-      color: white;
-      padding: 14px 25px;
-      border-radius: 30px;
-      font-size: 17px;
-      cursor: pointer;
-      margin-top: 20px;
-      box-shadow: 0 5px 15px rgba(0,0,0,0.18);
-    }
+button{
+  border:0;
+  background:linear-gradient(135deg,#168bd0,#ff4f91);
+  color:white;
+  padding:14px 25px;
+  border-radius:30px;
+  font-size:17px;
+  cursor:pointer;
+  margin-top:20px;
+  box-shadow:0 5px 15px rgba(0,0,0,.18);
+}
 
-    button:hover {
-      transform: scale(1.05);
-    }
+button:hover{
+  transform:scale(1.05);
+}
 
-    .hidden {
-      display: none;
-    }
+.hidden{
+  display:none;
+}
 
-    .heart {
-      font-size: 45px;
-      margin-bottom: 10px;
-    }
+.heart{
+  font-size:45px;
+  margin-bottom:10px;
+}
 
-    .memories {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-      gap: 15px;
-      margin-top: 20px;
-    }
+/* PHOTO GALLERY */
 
-    .memory {
-      background: #fff0f6;
-      padding: 20px;
-      border-radius: 18px;
-      font-size: 17px;
-    }
+.gallery{
+  display:grid;
+  grid-template-columns:repeat(2,1fr);
+  gap:14px;
+  margin-top:25px;
+}
 
-    .letter {
-      text-align: left;
-      background: #fff8fc;
-      border-radius: 20px;
-      padding: 25px;
-      line-height: 1.8;
-      font-size: 17px;
-    }
+.photo{
+  width:100%;
+  height:220px;
+  object-fit:cover;
+  border-radius:18px;
+  box-shadow:0 5px 15px rgba(0,0,0,.15);
+  transition:.3s;
+}
 
-    .footer {
-      margin-top: 20px;
-      font-size: 16px;
-      color: #777;
-    }
+.photo:hover{
+  transform:scale(1.03);
+}
 
-    .balloon {
-      position: fixed;
-      font-size: 35px;
-      animation: float 5s infinite ease-in-out;
-      z-index: -1;
-    }
+/* MESSAGE */
 
-    .b1 {
-      left: 5%;
-      top: 15%;
-    }
+.letter{
+  text-align:left;
+  background:#fff8fc;
+  border-radius:20px;
+  padding:25px;
+  line-height:1.8;
+}
 
-    .b2 {
-      right: 5%;
-      top: 25%;
-      animation-delay: 1s;
-    }
+/* BALLOONS */
 
-    .b3 {
-      left: 15%;
-      bottom: 10%;
-      animation-delay: 2s;
-    }
+.balloon{
+  position:fixed;
+  font-size:35px;
+  animation:float 5s infinite ease-in-out;
+  z-index:-1;
+}
 
-    .b4 {
-      right: 15%;
-      bottom: 15%;
-      animation-delay: 3s;
-    }
+.b1{left:5%;top:15%}
+.b2{right:5%;top:25%;animation-delay:1s}
+.b3{left:15%;bottom:10%;animation-delay:2s}
+.b4{right:15%;bottom:15%;animation-delay:3s}
 
-    @keyframes float {
-      0%,100% {
-        transform: translateY(0);
-      }
+@keyframes float{
+  0%,100%{transform:translateY(0)}
+  50%{transform:translateY(-25px)}
+}
 
-      50% {
-        transform: translateY(-25px);
-      }
-    }
+/* CONFETTI */
 
-    .confetti {
-      position: fixed;
-      top: -10px;
-      font-size: 22px;
-      animation: fall 4s linear forwards;
-      z-index: 999;
-    }
+.confetti{
+  position:fixed;
+  top:-10px;
+  font-size:22px;
+  animation:fall 4s linear forwards;
+  z-index:999;
+}
 
-    @keyframes fall {
-      to {
-        transform: translateY(110vh) rotate(720deg);
-        opacity: 0;
-      }
-    }
+@keyframes fall{
+  to{
+    transform:translateY(110vh) rotate(720deg);
+    opacity:0;
+  }
+}
 
-    @media(max-width:500px) {
-      h1 {
-        font-size: 30px;
-      }
+.footer{
+  margin-top:20px;
+  font-size:16px;
+  color:#777;
+}
 
-      .highlight {
-        font-size: 20px;
-      }
+@media(max-width:500px){
 
-      p {
-        font-size: 16px;
-      }
-    }
-  </style>
+  h1{
+    font-size:30px;
+  }
+
+  .highlight{
+    font-size:20px;
+  }
+
+  p{
+    font-size:16px;
+  }
+
+  .photo{
+    height:180px;
+  }
+}
+</style>
 </head>
 
 <body>
 
-  <div class="balloon b1">🎈</div>
-  <div class="balloon b2">🎈</div>
-  <div class="balloon b3">🎈</div>
-  <div class="balloon b4">🎈</div>
+<div class="balloon b1">🎈</div>
+<div class="balloon b2">🎈</div>
+<div class="balloon b3">🎈</div>
+<div class="balloon b4">🎈</div>
 
-  <div class="container">
+<div class="container">
 
-    <!-- MAIN CARD -->
-    <div class="card">
+<!-- MAIN -->
 
-      <div class="heart">💙🎂💗</div>
+<div class="card">
 
-      <h1>Happy Birthday Doraemon! 🎂🎉</h1>
+<div class="heart">💙🎂💗</div>
 
-      <p class="highlight">
-        My best friend, My Kuchu Puchuu 😚🫂❤️
-      </p>
+<h1>Happy Birthday Doraemon! 🎂🎉</h1>
 
-      <p>
-        Aaj ka din mere liye bhi special hai,
-        kyunki aaj meri sabse special person ka birthday hai. 🥹❤️
-      </p>
+<p class="highlight">
+My best friend, My Kuchu Puchuu 😚🫂❤️
+</p>
 
-      <button onclick="showMemories()">
-        🎁 Open Your Surprise
-      </button>
+<p>
+Aaj ka din mere liye bhi special hai,
+kyunki aaj meri sabse special person ka birthday hai. 🥹❤️
+</p>
 
-    </div>
+<button onclick="showSurprise()">
+🎁 Open Your Surprise
+</button>
 
+</div>
 
-    <!-- SURPRISE -->
-    <div id="surprise" class="card hidden">
 
-      <h2>🎉 Surpriseeee! 🎉</h2>
+<!-- SURPRISE -->
 
-      <p>
-        Happy Birthday meri Kuchu Puchuu! 😚🫂❤️
-      </p>
+<div id="surprise" class="card hidden">
 
-      <p>
-        Hamesha aise hi smile karte rehna,
-        khush rehna aur mujhe kabhi bhoolna mat. 🥹❤️
-      </p>
+<h2>🎉 Surpriseeee! 🎉</h2>
 
-      <button onclick="showSection('memories')">
-        📸 See Our Memories
-      </button>
+<p>
+Happy Birthday meri Kuchu Puchuu! 😚🫂❤️
+</p>
 
-    </div>
+<p>
+Hamesha aise hi smile karte rehna,
+khush rehna aur mujhe kabhi bhoolna mat. 🥹❤️
+</p>
 
+<button onclick="showGallery()">
+📸 See Our Memories
+</button>
 
-    <!-- MEMORIES -->
-    <div id="memories" class="card hidden">
+</div>
 
-      <h2>📸 Our Memories</h2>
 
-      <p>
-        Kuch moments chhote hote hain,
-        lekin memories hamesha ke liye hoti hain. ❤️
-      </p>
+<!-- PHOTO GALLERY -->
 
-      <div class="memories">
+<div id="gallery" class="card hidden">
 
-        <div class="memory">
-          😂<br>
-          Hamari pagalpan wali memories
-        </div>
+<h2>📸 Our Beautiful Memories</h2>
 
-        <div class="memory">
-          🫂<br>
-          Bestfriend wali bonding
-        </div>
+<p>
+Hamari yaadein hamesha special rahengi. 🫂❤️
+</p>
 
-        <div class="memory">
-          🥹<br>
-          Emotional moments
-        </div>
+<div class="gallery">
 
-        <div class="memory">
-          ❤️<br>
-          Forever wali friendship
-        </div>
+<img src="photo1.jpg" class="photo">
+<img src="photo2.jpg" class="photo">
+<img src="photo3.jpg" class="photo">
+<img src="photo4.jpg" class="photo">
+<img src="photo5.jpg" class="photo">
+<img src="photo6.jpg" class="photo">
+<img src="photo7.webp" class="photo">
+<img src="photo8.jpg" class="photo">
+<img src="photo9.jpg" class="photo">
+<img src="photo10.jpg" class="photo">
 
-        <div class="memory">
-          🤣<br>
-          Partners in crime
-        </div>
+</div>
 
-        <div class="memory">
-          🫶<br>
-          Always together
-        </div>
+<p class="highlight">
+Partners in crime, forever best friends 🫶😂❤️
+</p>
 
-      </div>
+<button onclick="showLetter()">
+💌 Read My Message
+</button>
 
-      <p class="highlight">
-        Partners in crime, forever best friends 🫶😂❤️
-      </p>
+</div>
 
-      <button onclick="showSection('letter')">
-        💌 Read My Message
-      </button>
 
-    </div>
+<!-- LETTER -->
 
+<div id="letter" class="card hidden">
 
-    <!-- LETTER -->
-    <div id="letter" class="card hidden">
+<h2>💌 A Little Message For You</h2>
 
-      <h2>💌 A Little Message For You</h2>
+<div class="letter">
 
-      <div class="letter">
+<p>Dear Doraemon ❤️,</p>
 
-        <p>
-          Dear Doraemon ❤️,
-        </p>
+<br>
 
-        <br>
+<p>
+Pata nahi humari friendship kaise start hui,
+lekin aaj tu meri life ka ek bahut important part hai. 🥹
+</p>
 
-        <p>
-          Pata nahi humari friendship kaise start hui,
-          lekin aaj tu meri life ka ek bahut important part hai. 🥹
-        </p>
+<br>
 
-        <br>
+<p>
+Tere saath ki hui choti-choti baatein,
+hasi-mazaak aur pagalpan sab mere liye special hai. 😂❤️
+</p>
 
-        <p>
-          Tere saath ki hui choti-choti baatein,
-          hasi-mazaak aur pagalpan sab mere liye special hai. 😂❤️
-        </p>
+<br>
 
-        <br>
+<p>
+Life mein chahe kitne bhi log aaye,
+main bas itna chahta hoon ki humari friendship
+hamesha aise hi bani rahe. 🫂❤️
+</p>
 
-        <p>
-          Life mein chahe kitne bhi log aaye,
-          main bas itna chahta hoon ki humari friendship
-          hamesha aise hi bani rahe. 🫂❤️
-        </p>
+<br>
 
-        <br>
+<p>
+Tu hamesha khush rahe,
+tere saare dreams complete ho
+aur tere face par hamesha smile rahe. 🥰
+</p>
 
-        <p>
-          Tu hamesha khush rahe,
-          tere saare dreams complete ho
-          aur tere face par hamesha smile rahe. 🥰
-        </p>
+<br>
 
-        <br>
+<p>
+Once again...
+</p>
 
-        <p>
-          Once again...
-        </p>
+<p class="highlight">
+Happy Birthday My Kuchu Puchuu! 🎂😚🫂❤️
+</p>
 
-        <br>
+</div>
 
-        <p class="highlight">
-          Happy Birthday My Kuchu Puchuu! 🎂😚🫂❤️
-        </p>
+<button onclick="finalSurprise()">
+❤️ One Last Surprise
+</button>
 
-      </div>
+</div>
 
-      <button onclick="finalSurprise()">
-        ❤️ One Last Surprise
-      </button>
 
-    </div>
+<!-- FINAL -->
 
+<div id="final" class="card hidden">
 
-    <!-- FINAL -->
-    <div id="final" class="card hidden">
+<div class="heart">
+🥹❤️🫂
+</div>
 
-      <div class="heart">
-        🥹❤️🫂
-      </div>
+<h2>Forever Best Friends ❤️</h2>
 
-      <h2>Forever Best Friends ❤️</h2>
+<p>
+No matter where life takes us,
+I hope our friendship stays the same. 🫂
+</p>
 
-      <p>
-        No matter where life takes us,
-        I hope our friendship stays the same. 🫂
-      </p>
+<br>
 
-      <br>
+<p class="highlight">
+My best friend, My Kuchu Puchuu 😚🫂❤️
+</p>
 
-      <p class="highlight">
-        My best friend, My Kuchu Puchuu 😚🫂❤️
-      </p>
+<p>
+Love you bestie! ❤️
+</p>
 
-      <p>
-        Love you bestie! ❤️
-      </p>
+<div style="font-size:45px;margin-top:20px">
+🎂🎉🎈🎁❤️🫂
+</div>
 
-      <div style="font-size:45px; margin-top:20px;">
-        🎂🎉🎈🎁❤️🫂
-      </div>
+</div>
 
-    </div>
 
+<div class="footer">
+Made with ❤️ specially for my best friend.
+</div>
 
-    <div class="footer">
-      Made with ❤️ specially for my best friend.
-    </div>
+</div>
 
-  </div>
 
+<script>
 
-  <script>
+function showSurprise(){
 
-    function showMemories() {
+document.getElementById("surprise").classList.remove("hidden");
 
-      document.getElementById("surprise").classList.remove("hidden");
+document.getElementById("surprise").scrollIntoView({
+behavior:"smooth"
+});
 
-      document.getElementById("surprise").scrollIntoView({
-        behavior: "smooth"
-      });
+confetti();
 
-      confetti();
-    }
+}
 
+function showGallery(){
 
-    function showSection(id) {
+document.getElementById("gallery").classList.remove("hidden");
 
-      document.getElementById(id).classList.remove("hidden");
+document.getElementById("gallery").scrollIntoView({
+behavior:"smooth"
+});
 
-      document.getElementById(id).scrollIntoView({
-        behavior: "smooth"
-      });
+confetti();
 
-      confetti();
-    }
+}
 
+function showLetter(){
 
-    function finalSurprise() {
+document.getElementById("letter").classList.remove("hidden");
 
-      document.getElementById("final").classList.remove("hidden");
+document.getElementById("letter").scrollIntoView({
+behavior:"smooth"
+});
 
-      document.getElementById("final").scrollIntoView({
-        behavior: "smooth"
-      });
+confetti();
 
-      confetti();
+}
 
-    }
+function finalSurprise(){
 
+document.getElementById("final").classList.remove("hidden");
 
-    function confetti() {
+document.getElementById("final").scrollIntoView({
+behavior:"smooth"
+});
 
-      const emojis = ["🎉","❤️","💙","💗","✨","🎈","🎂","🥳"];
+confetti();
 
-      for(let i = 0; i < 40; i++) {
+}
 
-        const item = document.createElement("div");
+function confetti(){
 
-        item.className = "confetti";
+const emojis=[
+"🎉","❤️","💙","💗",
+"✨","🎈","🎂","🥳"
+];
 
-        item.innerText =
-          emojis[Math.floor(Math.random() * emojis.length)];
+for(let i=0;i<40;i++){
 
-        item.style.left =
-          Math.random() * 100 + "vw";
+let item=document.createElement("div");
 
-        item.style.animationDuration =
-          (2 + Math.random() * 3) + "s";
+item.className="confetti";
 
-        document.body.appendChild(item);
+item.innerText=
+emojis[Math.floor(Math.random()*emojis.length)];
 
-        setTimeout(() => {
-          item.remove();
-        }, 5000);
-      }
+item.style.left=
+Math.random()*100+"vw";
 
-    }
+item.style.animationDuration=
+(2+Math.random()*3)+"s";
 
-  </script>
+document.body.appendChild(item);
+
+setTimeout(()=>{
+item.remove();
+},5000);
+
+}
+
+}
+
+</script>
 
 </body>
 </html>
