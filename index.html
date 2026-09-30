@@ -1,18 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-
 <meta charset="UTF-8">
-
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <title>Happy Birthday Doraemon 🎂❤️</title>
 
 <style>
-
-/* =========================
-   BASIC
-========================= */
 
 *{
 box-sizing:border-box;
@@ -221,6 +215,35 @@ line-height:1.8;
 
 
 /* =========================
+   TYPING ANIMATION
+========================= */
+
+.typing-message{
+min-height:320px;
+font-size:18px;
+line-height:1.8;
+color:#444;
+}
+
+.typing-cursor{
+display:inline-block;
+animation:blink .7s infinite;
+}
+
+@keyframes blink{
+
+0%,50%{
+opacity:1;
+}
+
+51%,100%{
+opacity:0;
+}
+
+}
+
+
+/* =========================
    GIFT BOX
 ========================= */
 
@@ -409,6 +432,11 @@ height:280px;
 font-size:85px;
 }
 
+.typing-message{
+font-size:16px;
+min-height:380px;
+}
+
 }
 
 </style>
@@ -418,8 +446,6 @@ font-size:85px;
 
 <body>
 
-
-<!-- BALLOONS -->
 
 <div class="balloon b1">🎈</div>
 <div class="balloon b2">🎈</div>
@@ -454,7 +480,7 @@ kyunki aaj meri sabse special person ka birthday hai. 🥹❤️
 </p>
 
 
-<!-- BIRTHDAY MUSIC -->
+<!-- MUSIC -->
 
 <audio id="birthdayMusic" loop>
 
@@ -470,7 +496,7 @@ kyunki aaj meri sabse special person ka birthday hai. 🥹❤️
 </button>
 
 
-<!-- VOICE WISH -->
+<!-- VOICE -->
 
 <audio id="myVoice">
 
@@ -544,8 +570,6 @@ Hamari yaadein hamesha special rahengi. 🫂❤️
 </p>
 
 
-<!-- SLIDESHOW -->
-
 <div class="slideshow">
 
 
@@ -553,139 +577,76 @@ Hamari yaadein hamesha special rahengi. 🫂❤️
 <img src="photo1.jpg">
 </div>
 
-
 <div class="slide">
 <img src="photo2.jpg">
 </div>
-
 
 <div class="slide">
 <img src="photo3.jpg">
 </div>
 
-
 <div class="slide">
 <img src="photo4.jpg">
 </div>
-
 
 <div class="slide">
 <img src="photo5.jpg">
 </div>
 
-
 <div class="slide">
 <img src="photo6.jpg">
 </div>
-
 
 <div class="slide">
 <img src="photo7.webp">
 </div>
 
-
 <div class="slide">
 <img src="photo8.jpg">
 </div>
 
-
 <div class="slide">
 <img src="photo9.jpg">
 </div>
-
 
 <div class="slide">
 <img src="photo10.jpg">
 </div>
 
 
-<!-- PREVIOUS -->
-
 <button
 class="slide-btn prev"
 onclick="changeSlide(-1)">
-
 ❮
-
 </button>
-
-
-<!-- NEXT -->
 
 <button
 class="slide-btn next"
 onclick="changeSlide(1)">
-
 ❯
-
 </button>
-
 
 </div>
 
 
-<!-- DOTS -->
-
 <div class="dots">
 
-<span
-class="dot active"
-onclick="currentSlide(1)">
-</span>
-
-<span
-class="dot"
-onclick="currentSlide(2)">
-</span>
-
-<span
-class="dot"
-onclick="currentSlide(3)">
-</span>
-
-<span
-class="dot"
-onclick="currentSlide(4)">
-</span>
-
-<span
-class="dot"
-onclick="currentSlide(5)">
-</span>
-
-<span
-class="dot"
-onclick="currentSlide(6)">
-</span>
-
-<span
-class="dot"
-onclick="currentSlide(7)">
-</span>
-
-<span
-class="dot"
-onclick="currentSlide(8)">
-</span>
-
-<span
-class="dot"
-onclick="currentSlide(9)">
-</span>
-
-<span
-class="dot"
-onclick="currentSlide(10)">
-</span>
+<span class="dot active" onclick="currentSlide(1)"></span>
+<span class="dot" onclick="currentSlide(2)"></span>
+<span class="dot" onclick="currentSlide(3)"></span>
+<span class="dot" onclick="currentSlide(4)"></span>
+<span class="dot" onclick="currentSlide(5)"></span>
+<span class="dot" onclick="currentSlide(6)"></span>
+<span class="dot" onclick="currentSlide(7)"></span>
+<span class="dot" onclick="currentSlide(8)"></span>
+<span class="dot" onclick="currentSlide(9)"></span>
+<span class="dot" onclick="currentSlide(10)"></span>
 
 </div>
 
 
 <p class="highlight">
-
-Partners in crime,
-forever best friends 🫶😂❤️
-
+Partners in crime, forever best friends 🫶😂❤️
 </p>
 
 
@@ -718,39 +679,13 @@ Dear Doraemon ❤️,
 
 <br>
 
-<p>
-Pata nahi humari friendship kaise start hui,
-lekin aaj tu meri life ka ek bahut important part hai. 🥹
-</p>
+
+<!-- TYPING MESSAGE -->
+
+<p id="typingMessage" class="typing-message"></p>
+
 
 <br>
-
-<p>
-Tere saath ki hui choti-choti baatein,
-hasi-mazaak aur pagalpan sab mere liye special hai. 😂❤️
-</p>
-
-<br>
-
-<p>
-Life mein chahe kitne bhi log aaye,
-main bas itna chahta hoon ki humari friendship
-hamesha aise hi bani rahe. 🫂❤️
-</p>
-
-<br>
-
-<p>
-Tu hamesha khush rahe,
-tere saare dreams complete ho
-aur tere face par hamesha smile rahe. 🥰
-</p>
-
-<br>
-
-<p>
-Once again...
-</p>
 
 <p class="highlight">
 
@@ -772,30 +707,24 @@ Happy Birthday My Kuchu Puchuu! 🎂😚🫂❤️
 
 
 <!-- =========================
-     FINAL SURPRISE
+     FINAL
 ========================= -->
 
 <div id="final" class="card hidden">
 
 <div class="heart">
-
 🥹❤️🫂
-
 </div>
 
 
 <h2>
-
 Forever Best Friends ❤️
-
 </h2>
 
 
 <p>
-
 No matter where life takes us,
 I hope our friendship stays the same. 🫂
-
 </p>
 
 
@@ -811,15 +740,11 @@ My Kuchu Puchuu 😚🫂❤️
 
 
 <p>
-
 Love you bestie! ❤️
-
 </p>
 
 
-<!-- =========================
-     GIFT BOX
-========================= -->
+<!-- GIFT -->
 
 <div class="gift-area">
 
@@ -847,24 +772,18 @@ class="gift-message hidden">
 
 
 <div style="font-size:45px;">
-
 💖🥹🫂
-
 </div>
 
 
 <h2>
-
 For My Kuchu Puchuu ❤️
-
 </h2>
 
 
 <p>
-
 Tu meri life ke un special logon mein se hai
 jinki presence hamesha smile laati hai. 🥹❤️
-
 </p>
 
 
@@ -872,10 +791,8 @@ jinki presence hamesha smile laati hai. 🥹❤️
 
 
 <p>
-
 Bas ek hi wish hai...
 humari friendship hamesha aise hi bani rahe. 🫂❤️
-
 </p>
 
 
@@ -883,9 +800,7 @@ humari friendship hamesha aise hi bani rahe. 🫂❤️
 
 
 <p class="highlight">
-
 Happy Birthday My Kuchu Puchuu! 🎂😚❤️
-
 </p>
 
 
@@ -894,8 +809,7 @@ Happy Birthday My Kuchu Puchuu! 🎂😚❤️
 </div>
 
 
-<div
-style="font-size:45px;margin-top:20px">
+<div style="font-size:45px;margin-top:20px">
 
 🎂🎉🎈🎁❤️🫂
 
@@ -903,9 +817,6 @@ style="font-size:45px;margin-top:20px">
 
 </div>
 
-
-
-<!-- FOOTER -->
 
 <div class="footer">
 
@@ -922,7 +833,7 @@ Made with ❤️ specially for my best friend.
 
 
 /* =========================
-   STOP ALL AUDIO
+   STOP AUDIO
 ========================= */
 
 function stopAllAudio(){
@@ -1055,6 +966,8 @@ document.getElementById("letter")
 behavior:"smooth"
 });
 
+startTyping();
+
 confetti();
 
 }
@@ -1105,7 +1018,6 @@ slideIndex=1;
 
 }
 
-
 if(n<1){
 
 slideIndex=slides.length;
@@ -1130,14 +1042,11 @@ dot.classList.remove("active");
 slides[slideIndex-1]
 .classList.add("active");
 
-
 dots[slideIndex-1]
 .classList.add("active");
 
 }
 
-
-/* NEXT / PREVIOUS */
 
 function changeSlide(n){
 
@@ -1150,8 +1059,6 @@ resetSlideTimer();
 }
 
 
-/* DIRECT PHOTO */
-
 function currentSlide(n){
 
 slideIndex=n;
@@ -1163,8 +1070,6 @@ resetSlideTimer();
 }
 
 
-/* AUTO SLIDE */
-
 function autoSlide(){
 
 slideIndex++;
@@ -1173,8 +1078,6 @@ showSlide(slideIndex);
 
 }
 
-
-/* RESET TIMER */
 
 function resetSlideTimer(){
 
@@ -1186,14 +1089,87 @@ setInterval(autoSlide,4000);
 }
 
 
-/* START SLIDESHOW */
-
 slideTimer =
 setInterval(autoSlide,4000);
 
 
+
 /* =========================
-   GIFT BOX
+   TYPING ANIMATION
+========================= */
+
+const typingText =
+`Pata nahi humari friendship kaise start hui,
+lekin aaj tu meri life ka ek bahut important part hai. 🥹❤️
+
+Tere saath ki hui choti-choti baatein,
+hasi-mazaak aur pagalpan sab mere liye special hai. 😂❤️
+
+Life mein chahe kitne bhi log aaye,
+main bas itna chahta hoon ki humari friendship hamesha aise hi bani rahe. 🫂❤️
+
+Tu hamesha khush rahe,
+tere saare dreams complete ho aur tere face par hamesha smile rahe. 🥰❤️`;
+
+
+let typingStarted=false;
+
+
+function startTyping(){
+
+const element =
+document.getElementById("typingMessage");
+
+
+if(!element){
+return;
+}
+
+
+element.innerHTML="";
+
+typingStarted=false;
+
+
+let i=0;
+
+
+function type(){
+
+if(i < typingText.length){
+
+if(typingText[i]==="\n"){
+
+element.innerHTML += "<br>";
+
+}else{
+
+element.innerHTML += typingText[i];
+
+}
+
+i++;
+
+setTimeout(type,45);
+
+}
+
+}
+
+
+if(!typingStarted){
+
+typingStarted=true;
+
+type();
+
+}
+
+}
+
+
+/* =========================
+   GIFT
 ========================= */
 
 function openGift(){
@@ -1204,8 +1180,6 @@ document.getElementById("giftBox");
 const message =
 document.getElementById("giftMessage");
 
-
-/* Prevent clicking again */
 
 if(gift.classList.contains("opened")){
 
@@ -1235,7 +1209,6 @@ confetti();
 function confetti(){
 
 const emojis=[
-
 "🎉",
 "❤️",
 "💙",
@@ -1244,7 +1217,6 @@ const emojis=[
 "🎈",
 "🎂",
 "🥳"
-
 ];
 
 
@@ -1289,4 +1261,4 @@ item.remove();
 </script>
 
 </body>
-  </html>
+</html>
