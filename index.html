@@ -85,17 +85,13 @@ button:hover{
   margin-bottom:10px;
 }
 
-/* MUSIC */
-
-.music-box{
-  margin:20px 0;
-}
-
 .music-btn{
   background:linear-gradient(135deg,#ff4081,#ff8a00);
 }
 
-/* PHOTO GALLERY */
+.voice-btn{
+  background:linear-gradient(135deg,#8e44ad,#e84393);
+}
 
 .gallery{
   display:grid;
@@ -117,8 +113,6 @@ button:hover{
   transform:scale(1.04) rotate(1deg);
 }
 
-/* LETTER */
-
 .letter{
   text-align:left;
   background:#fff8fc;
@@ -126,8 +120,6 @@ button:hover{
   padding:25px;
   line-height:1.8;
 }
-
-/* BALLOONS */
 
 .balloon{
   position:fixed;
@@ -145,8 +137,6 @@ button:hover{
   0%,100%{transform:translateY(0)}
   50%{transform:translateY(-25px)}
 }
-
-/* CONFETTI */
 
 .confetti{
   position:fixed;
@@ -170,22 +160,10 @@ button:hover{
 }
 
 @media(max-width:500px){
-
-  h1{
-    font-size:30px;
-  }
-
-  .highlight{
-    font-size:20px;
-  }
-
-  p{
-    font-size:16px;
-  }
-
-  .photo{
-    height:180px;
-  }
+  h1{font-size:30px}
+  .highlight{font-size:20px}
+  p{font-size:16px}
+  .photo{height:180px}
 }
 </style>
 </head>
@@ -216,17 +194,25 @@ Aaj ka din mere liye bhi special hai,
 kyunki aaj meri sabse special person ka birthday hai. 🥹❤️
 </p>
 
-<div class="music-box">
-
-<button class="music-btn" onclick="playMusic()">
-🎵 Play Birthday Music
-</button>
+<!-- MUSIC -->
 
 <audio id="birthdayMusic" loop>
 <source src="ReelAudio-79268.mp3" type="audio/mpeg">
 </audio>
 
-</div>
+<button class="music-btn" onclick="playMusic()">
+🎵 Play Birthday Music
+</button>
+
+<!-- VOICE -->
+
+<audio id="myVoice">
+<source src="my special wish.mp3" type="audio/mpeg">
+</audio>
+
+<button class="voice-btn" onclick="playVoice()">
+🎙️ Listen to My Special Wish ❤️
+</button>
 
 <button onclick="showSurprise()">
 🎁 Open Your Surprise
@@ -257,7 +243,7 @@ khush rehna aur mujhe kabhi bhoolna mat. 🥹❤️
 </div>
 
 
-<!-- PHOTO GALLERY -->
+<!-- GALLERY -->
 
 <div id="gallery" class="card hidden">
 
@@ -269,16 +255,16 @@ Hamari yaadein hamesha special rahengi. 🫂❤️
 
 <div class="gallery">
 
-<img src="photo1.jpg" class="photo" alt="Memory 1">
-<img src="photo2.jpg" class="photo" alt="Memory 2">
-<img src="photo3.jpg" class="photo" alt="Memory 3">
-<img src="photo4.jpg" class="photo" alt="Memory 4">
-<img src="photo5.jpg" class="photo" alt="Memory 5">
-<img src="photo6.jpg" class="photo" alt="Memory 6">
-<img src="photo7.webp" class="photo" alt="Memory 7">
-<img src="photo8.jpg" class="photo" alt="Memory 8">
-<img src="photo9.jpg" class="photo" alt="Memory 9">
-<img src="photo10.jpg" class="photo" alt="Memory 10">
+<img src="photo1.jpg" class="photo">
+<img src="photo2.jpg" class="photo">
+<img src="photo3.jpg" class="photo">
+<img src="photo4.jpg" class="photo">
+<img src="photo5.jpg" class="photo">
+<img src="photo6.jpg" class="photo">
+<img src="photo7.webp" class="photo">
+<img src="photo8.jpg" class="photo">
+<img src="photo9.jpg" class="photo">
+<img src="photo10.jpg" class="photo">
 
 </div>
 
@@ -301,9 +287,7 @@ Partners in crime, forever best friends 🫶😂❤️
 
 <div class="letter">
 
-<p>
-Dear Doraemon ❤️,
-</p>
+<p>Dear Doraemon ❤️,</p>
 
 <br>
 
@@ -398,13 +382,16 @@ Made with ❤️ specially for my best friend.
 function playMusic(){
 
 const music=document.getElementById("birthdayMusic");
+const voice=document.getElementById("myVoice");
+
+voice.pause();
 
 if(music.paused){
 
 music.play();
 
 document.querySelector(".music-btn").innerHTML =
-"⏸️ Pause Music";
+"⏸️ Pause Birthday Music";
 
 }else{
 
@@ -416,6 +403,22 @@ document.querySelector(".music-btn").innerHTML =
 }
 
 }
+
+
+function playVoice(){
+
+const voice=document.getElementById("myVoice");
+const music=document.getElementById("birthdayMusic");
+
+music.pause();
+
+voice.currentTime=0;
+voice.play();
+
+confetti();
+
+}
+
 
 function showSurprise(){
 
@@ -429,6 +432,7 @@ confetti();
 
 }
 
+
 function showGallery(){
 
 document.getElementById("gallery").classList.remove("hidden");
@@ -440,6 +444,7 @@ behavior:"smooth"
 confetti();
 
 }
+
 
 function showLetter(){
 
@@ -453,6 +458,7 @@ confetti();
 
 }
 
+
 function finalSurprise(){
 
 document.getElementById("final").classList.remove("hidden");
@@ -464,6 +470,7 @@ behavior:"smooth"
 confetti();
 
 }
+
 
 function confetti(){
 
