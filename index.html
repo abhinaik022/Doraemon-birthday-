@@ -3,7 +3,6 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
 <title>Happy Birthday Doraemon 🎂❤️</title>
 
 <style>
@@ -177,8 +176,7 @@ button:hover{
 
 <div class="container">
 
-<!-- MAIN CARD -->
-
+<!-- FIRST SECTION -->
 <div class="card">
 
 <div class="heart">💙🎂💗</div>
@@ -190,12 +188,10 @@ My best friend, My Kuchu Puchuu 😚🫂❤️
 </p>
 
 <p>
-Aaj ka din mere liye bhi special hai,
-kyunki aaj meri sabse special person ka birthday hai. 🥹❤️
+Aaj ka din mere liye bhi special hai, kyunki aaj meri sabse special person ka birthday hai. 🥹❤️
 </p>
 
-<!-- MUSIC -->
-
+<!-- BIRTHDAY MUSIC -->
 <audio id="birthdayMusic" loop>
 <source src="ReelAudio-79268.mp3" type="audio/mpeg">
 </audio>
@@ -204,8 +200,7 @@ kyunki aaj meri sabse special person ka birthday hai. 🥹❤️
 🎵 Play Birthday Music
 </button>
 
-<!-- VOICE -->
-
+<!-- VOICE WISH -->
 <audio id="myVoice">
 <source src="my special wish.mp3" type="audio/mpeg">
 </audio>
@@ -213,6 +208,8 @@ kyunki aaj meri sabse special person ka birthday hai. 🥹❤️
 <button class="voice-btn" onclick="playVoice()">
 🎙️ Listen to My Special Wish ❤️
 </button>
+
+<br>
 
 <button onclick="showSurprise()">
 🎁 Open Your Surprise
@@ -222,7 +219,6 @@ kyunki aaj meri sabse special person ka birthday hai. 🥹❤️
 
 
 <!-- SURPRISE -->
-
 <div id="surprise" class="card hidden">
 
 <h2>🎉 Surpriseeee! 🎉</h2>
@@ -232,8 +228,7 @@ Happy Birthday meri Kuchu Puchuu! 😚🫂❤️
 </p>
 
 <p>
-Hamesha aise hi smile karte rehna,
-khush rehna aur mujhe kabhi bhoolna mat. 🥹❤️
+Hamesha aise hi smile karte rehna, khush rehna aur mujhe kabhi bhoolna mat. 🥹❤️
 </p>
 
 <button onclick="showGallery()">
@@ -244,7 +239,6 @@ khush rehna aur mujhe kabhi bhoolna mat. 🥹❤️
 
 
 <!-- GALLERY -->
-
 <div id="gallery" class="card hidden">
 
 <h2>📸 Our Beautiful Memories</h2>
@@ -280,7 +274,6 @@ Partners in crime, forever best friends 🫶😂❤️
 
 
 <!-- LETTER -->
-
 <div id="letter" class="card hidden">
 
 <h2>💌 A Little Message For You</h2>
@@ -292,38 +285,30 @@ Partners in crime, forever best friends 🫶😂❤️
 <br>
 
 <p>
-Pata nahi humari friendship kaise start hui,
-lekin aaj tu meri life ka ek bahut important part hai. 🥹
+Pata nahi humari friendship kaise start hui, lekin aaj tu meri life ka ek bahut important part hai. 🥹
 </p>
 
 <br>
 
 <p>
-Tere saath ki hui choti-choti baatein,
-hasi-mazaak aur pagalpan sab mere liye special hai. 😂❤️
+Tere saath ki hui choti-choti baatein, hasi-mazaak aur pagalpan sab mere liye special hai. 😂❤️
 </p>
 
 <br>
 
 <p>
-Life mein chahe kitne bhi log aaye,
-main bas itna chahta hoon ki humari friendship
-hamesha aise hi bani rahe. 🫂❤️
+Life mein chahe kitne bhi log aaye, main bas itna chahta hoon ki humari friendship hamesha aise hi bani rahe. 🫂❤️
 </p>
 
 <br>
 
 <p>
-Tu hamesha khush rahe,
-tere saare dreams complete ho
-aur tere face par hamesha smile rahe. 🥰
+Tu hamesha khush rahe, tere saare dreams complete ho aur tere face par hamesha smile rahe. 🥰
 </p>
 
 <br>
 
-<p>
-Once again...
-</p>
+<p>Once again...</p>
 
 <p class="highlight">
 Happy Birthday My Kuchu Puchuu! 🎂😚🫂❤️
@@ -339,18 +324,14 @@ Happy Birthday My Kuchu Puchuu! 🎂😚🫂❤️
 
 
 <!-- FINAL -->
-
 <div id="final" class="card hidden">
 
-<div class="heart">
-🥹❤️🫂
-</div>
+<div class="heart">🥹❤️🫂</div>
 
 <h2>Forever Best Friends ❤️</h2>
 
 <p>
-No matter where life takes us,
-I hope our friendship stays the same. 🫂
+No matter where life takes us, I hope our friendship stays the same. 🫂
 </p>
 
 <br>
@@ -369,7 +350,6 @@ Love you bestie! ❤️
 
 </div>
 
-
 <div class="footer">
 Made with ❤️ specially for my best friend.
 </div>
@@ -379,128 +359,152 @@ Made with ❤️ specially for my best friend.
 
 <script>
 
+/* STOP ALL MUSIC AND VOICE */
+function stopAllAudio(){
+
+  const music = document.getElementById("birthdayMusic");
+  const voice = document.getElementById("myVoice");
+
+  music.pause();
+  voice.pause();
+
+}
+
+
+/* BIRTHDAY MUSIC */
 function playMusic(){
 
-const music=document.getElementById("birthdayMusic");
-const voice=document.getElementById("myVoice");
+  const music = document.getElementById("birthdayMusic");
+  const voice = document.getElementById("myVoice");
 
-voice.pause();
+  voice.pause();
 
-if(music.paused){
+  if(music.paused){
 
-music.play();
+    music.play();
 
-document.querySelector(".music-btn").innerHTML =
-"⏸️ Pause Birthday Music";
+    document.querySelector(".music-btn").innerHTML =
+    "⏸️ Pause Birthday Music";
 
-}else{
+  }else{
 
-music.pause();
+    music.pause();
 
-document.querySelector(".music-btn").innerHTML =
-"🎵 Play Birthday Music";
+    document.querySelector(".music-btn").innerHTML =
+    "🎵 Play Birthday Music";
+
+  }
 
 }
 
-}
 
-
+/* VOICE WISH */
 function playVoice(){
 
-const voice=document.getElementById("myVoice");
-const music=document.getElementById("birthdayMusic");
+  const voice = document.getElementById("myVoice");
+  const music = document.getElementById("birthdayMusic");
 
-music.pause();
+  music.pause();
 
-voice.currentTime=0;
-voice.play();
+  voice.currentTime = 0;
 
-confetti();
+  voice.play();
+
+  confetti();
 
 }
 
 
+/* SURPRISE */
 function showSurprise(){
 
-document.getElementById("surprise").classList.remove("hidden");
+  stopAllAudio();
 
-document.getElementById("surprise").scrollIntoView({
-behavior:"smooth"
-});
+  document.getElementById("surprise").classList.remove("hidden");
 
-confetti();
+  document.getElementById("surprise")
+  .scrollIntoView({behavior:"smooth"});
+
+  confetti();
 
 }
 
 
+/* GALLERY */
 function showGallery(){
 
-document.getElementById("gallery").classList.remove("hidden");
+  stopAllAudio();
 
-document.getElementById("gallery").scrollIntoView({
-behavior:"smooth"
-});
+  document.getElementById("gallery").classList.remove("hidden");
 
-confetti();
+  document.getElementById("gallery")
+  .scrollIntoView({behavior:"smooth"});
+
+  confetti();
 
 }
 
 
+/* LETTER */
 function showLetter(){
 
-document.getElementById("letter").classList.remove("hidden");
+  stopAllAudio();
 
-document.getElementById("letter").scrollIntoView({
-behavior:"smooth"
-});
+  document.getElementById("letter").classList.remove("hidden");
 
-confetti();
+  document.getElementById("letter")
+  .scrollIntoView({behavior:"smooth"});
+
+  confetti();
 
 }
 
 
+/* FINAL SURPRISE */
 function finalSurprise(){
 
-document.getElementById("final").classList.remove("hidden");
+  stopAllAudio();
 
-document.getElementById("final").scrollIntoView({
-behavior:"smooth"
-});
+  document.getElementById("final").classList.remove("hidden");
 
-confetti();
+  document.getElementById("final")
+  .scrollIntoView({behavior:"smooth"});
+
+  confetti();
 
 }
 
 
+/* CONFETTI */
 function confetti(){
 
-const emojis=[
-"🎉","❤️","💙","💗",
-"✨","🎈","🎂","🥳"
-];
+  const emojis = [
+    "🎉","❤️","💙","💗",
+    "✨","🎈","🎂","🥳"
+  ];
 
-for(let i=0;i<40;i++){
+  for(let i=0;i<40;i++){
 
-let item=document.createElement("div");
+    let item = document.createElement("div");
 
-item.className="confetti";
+    item.className = "confetti";
 
-item.innerText=
-emojis[Math.floor(Math.random()*emojis.length)];
+    item.innerText =
+    emojis[Math.floor(Math.random()*emojis.length)];
 
-item.style.left=
-Math.random()*100+"vw";
+    item.style.left =
+    Math.random()*100+"vw";
 
-item.style.animationDuration=
-(2+Math.random()*3)+"s";
+    item.style.animationDuration =
+    (2+Math.random()*3)+"s";
 
-document.body.appendChild(item);
+    document.body.appendChild(item);
 
-setTimeout(()=>{
-item.remove();
-},5000);
+    setTimeout(()=>{
+      item.remove();
+    },5000);
 
-}
+  }
 
 }
 
