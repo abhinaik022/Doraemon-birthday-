@@ -1,514 +1,1292 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+
 <meta charset="UTF-8">
+
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <title>Happy Birthday Doraemon 🎂❤️</title>
 
 <style>
+
+/* =========================
+   BASIC
+========================= */
+
 *{
-  box-sizing:border-box;
-  margin:0;
-  padding:0;
+box-sizing:border-box;
+margin:0;
+padding:0;
 }
 
 body{
-  font-family:Arial,sans-serif;
-  background:linear-gradient(135deg,#dff6ff,#ffe6f2);
-  color:#333;
-  text-align:center;
-  min-height:100vh;
-  overflow-x:hidden;
+font-family:Arial,sans-serif;
+background:linear-gradient(135deg,#dff6ff,#ffe6f2);
+color:#333;
+text-align:center;
+min-height:100vh;
+overflow-x:hidden;
 }
 
 .container{
-  width:92%;
-  max-width:900px;
-  margin:auto;
-  padding:30px 15px;
+width:92%;
+max-width:900px;
+margin:auto;
+padding:30px 15px;
 }
 
 .card{
-  background:rgba(255,255,255,.94);
-  border-radius:25px;
-  padding:30px 20px;
-  margin-bottom:25px;
-  box-shadow:0 10px 30px rgba(0,0,0,.12);
+background:rgba(255,255,255,.94);
+border-radius:25px;
+padding:30px 20px;
+margin-bottom:25px;
+box-shadow:0 10px 30px rgba(0,0,0,.12);
 }
 
 h1{
-  font-size:38px;
-  color:#168bd0;
-  margin-bottom:18px;
+font-size:38px;
+color:#168bd0;
+margin-bottom:18px;
 }
 
 h2{
-  color:#ff4f91;
-  margin-bottom:15px;
+color:#ff4f91;
+margin-bottom:15px;
 }
 
 p{
-  font-size:18px;
-  line-height:1.7;
+font-size:18px;
+line-height:1.7;
 }
 
 .highlight{
-  font-size:23px;
-  font-weight:bold;
-  color:#ff4081;
-  margin:20px 0;
+font-size:23px;
+font-weight:bold;
+color:#ff4081;
+margin:20px 0;
 }
 
 button{
-  border:0;
-  background:linear-gradient(135deg,#168bd0,#ff4f91);
-  color:white;
-  padding:14px 25px;
-  border-radius:30px;
-  font-size:17px;
-  cursor:pointer;
-  margin-top:20px;
-  box-shadow:0 5px 15px rgba(0,0,0,.18);
+border:0;
+background:linear-gradient(135deg,#168bd0,#ff4f91);
+color:white;
+padding:14px 25px;
+border-radius:30px;
+font-size:17px;
+cursor:pointer;
+margin-top:20px;
+box-shadow:0 5px 15px rgba(0,0,0,.18);
 }
 
 button:hover{
-  transform:scale(1.05);
+transform:scale(1.05);
 }
 
 .hidden{
-  display:none;
+display:none;
 }
 
 .heart{
-  font-size:45px;
-  margin-bottom:10px;
+font-size:45px;
+margin-bottom:10px;
 }
 
 .music-btn{
-  background:linear-gradient(135deg,#ff4081,#ff8a00);
+background:linear-gradient(135deg,#ff4081,#ff8a00);
 }
 
 .voice-btn{
-  background:linear-gradient(135deg,#8e44ad,#e84393);
+background:linear-gradient(135deg,#8e44ad,#e84393);
 }
 
-.gallery{
-  display:grid;
-  grid-template-columns:repeat(2,1fr);
-  gap:14px;
-  margin-top:25px;
+
+/* =========================
+   SLIDESHOW
+========================= */
+
+.slideshow{
+position:relative;
+width:100%;
+max-width:600px;
+height:350px;
+margin:25px auto;
+overflow:hidden;
+border-radius:22px;
+box-shadow:0 10px 25px rgba(0,0,0,.2);
+background:#eee;
 }
 
-.photo{
-  width:100%;
-  height:220px;
-  object-fit:cover;
-  border-radius:18px;
-  box-shadow:0 5px 15px rgba(0,0,0,.15);
-  transition:.4s;
+.slide{
+display:none;
+width:100%;
+height:100%;
+animation:fadeSlide 1s ease;
 }
 
-.photo:hover{
-  transform:scale(1.04) rotate(1deg);
+.slide.active{
+display:block;
 }
+
+.slide img{
+width:100%;
+height:100%;
+object-fit:cover;
+}
+
+@keyframes fadeSlide{
+
+from{
+opacity:0;
+transform:scale(1.08);
+}
+
+to{
+opacity:1;
+transform:scale(1);
+}
+
+}
+
+
+/* =========================
+   SLIDESHOW BUTTONS
+========================= */
+
+.slide-btn{
+position:absolute;
+top:50%;
+transform:translateY(-50%);
+background:rgba(0,0,0,.45);
+color:white;
+border:none;
+width:45px;
+height:45px;
+padding:0;
+margin:0;
+border-radius:50%;
+font-size:24px;
+z-index:5;
+}
+
+.slide-btn:hover{
+background:rgba(0,0,0,.7);
+transform:translateY(-50%) scale(1.08);
+}
+
+.prev{
+left:12px;
+}
+
+.next{
+right:12px;
+}
+
+
+/* =========================
+   DOTS
+========================= */
+
+.dots{
+margin-top:15px;
+}
+
+.dot{
+display:inline-block;
+width:10px;
+height:10px;
+background:#bbb;
+border-radius:50%;
+margin:5px;
+cursor:pointer;
+}
+
+.dot.active{
+background:#ff4081;
+transform:scale(1.3);
+}
+
+
+/* =========================
+   LETTER
+========================= */
 
 .letter{
-  text-align:left;
-  background:#fff8fc;
-  border-radius:20px;
-  padding:25px;
-  line-height:1.8;
+text-align:left;
+background:#fff8fc;
+border-radius:20px;
+padding:25px;
+line-height:1.8;
 }
+
+
+/* =========================
+   GIFT BOX
+========================= */
+
+.gift-area{
+margin-top:30px;
+}
+
+.gift-box{
+font-size:100px;
+cursor:pointer;
+display:inline-block;
+animation:giftBounce 1.5s infinite;
+transition:.4s;
+}
+
+.gift-box:hover{
+transform:scale(1.15);
+}
+
+@keyframes giftBounce{
+
+0%,100%{
+transform:translateY(0) rotate(0deg);
+}
+
+50%{
+transform:translateY(-15px) rotate(5deg);
+}
+
+}
+
+.gift-box.opened{
+animation:giftOpen .7s ease forwards;
+}
+
+@keyframes giftOpen{
+
+0%{
+transform:scale(1);
+}
+
+50%{
+transform:scale(1.4) rotate(10deg);
+}
+
+100%{
+transform:scale(0);
+opacity:0;
+}
+
+}
+
+.gift-hint{
+font-weight:bold;
+color:#ff4081;
+margin-top:5px;
+}
+
+.gift-message{
+background:linear-gradient(135deg,#fff0f7,#eefaff);
+border-radius:25px;
+padding:25px;
+margin-top:20px;
+animation:messageAppear 1s ease;
+box-shadow:0 8px 25px rgba(0,0,0,.12);
+}
+
+@keyframes messageAppear{
+
+from{
+opacity:0;
+transform:scale(.7) translateY(30px);
+}
+
+to{
+opacity:1;
+transform:scale(1) translateY(0);
+}
+
+}
+
+
+/* =========================
+   BALLOONS
+========================= */
 
 .balloon{
-  position:fixed;
-  font-size:35px;
-  animation:float 5s infinite ease-in-out;
-  z-index:-1;
+position:fixed;
+font-size:35px;
+animation:float 5s infinite ease-in-out;
+z-index:-1;
 }
 
-.b1{left:5%;top:15%}
-.b2{right:5%;top:25%;animation-delay:1s}
-.b3{left:15%;bottom:10%;animation-delay:2s}
-.b4{right:15%;bottom:15%;animation-delay:3s}
+.b1{
+left:5%;
+top:15%;
+}
+
+.b2{
+right:5%;
+top:25%;
+animation-delay:1s;
+}
+
+.b3{
+left:15%;
+bottom:10%;
+animation-delay:2s;
+}
+
+.b4{
+right:15%;
+bottom:15%;
+animation-delay:3s;
+}
 
 @keyframes float{
-  0%,100%{transform:translateY(0)}
-  50%{transform:translateY(-25px)}
+
+0%,100%{
+transform:translateY(0);
 }
 
+50%{
+transform:translateY(-25px);
+}
+
+}
+
+
+/* =========================
+   CONFETTI
+========================= */
+
 .confetti{
-  position:fixed;
-  top:-10px;
-  font-size:22px;
-  animation:fall 4s linear forwards;
-  z-index:999;
+position:fixed;
+top:-10px;
+font-size:22px;
+animation:fall 4s linear forwards;
+z-index:999;
 }
 
 @keyframes fall{
-  to{
-    transform:translateY(110vh) rotate(720deg);
-    opacity:0;
-  }
+
+to{
+transform:translateY(110vh) rotate(720deg);
+opacity:0;
 }
+
+}
+
+
+/* =========================
+   FOOTER
+========================= */
 
 .footer{
-  margin-top:20px;
-  font-size:16px;
-  color:#777;
+margin-top:20px;
+font-size:16px;
+color:#777;
 }
+
+
+/* =========================
+   MOBILE
+========================= */
 
 @media(max-width:500px){
-  h1{font-size:30px}
-  .highlight{font-size:20px}
-  p{font-size:16px}
-  .photo{height:180px}
+
+h1{
+font-size:30px;
 }
+
+.highlight{
+font-size:20px;
+}
+
+p{
+font-size:16px;
+}
+
+.slideshow{
+height:280px;
+}
+
+.gift-box{
+font-size:85px;
+}
+
+}
+
 </style>
+
 </head>
 
+
 <body>
+
+
+<!-- BALLOONS -->
 
 <div class="balloon b1">🎈</div>
 <div class="balloon b2">🎈</div>
 <div class="balloon b3">🎈</div>
 <div class="balloon b4">🎈</div>
 
+
 <div class="container">
 
-<!-- FIRST SECTION -->
+
+<!-- =========================
+     FIRST SECTION
+========================= -->
+
 <div class="card">
 
-<div class="heart">💙🎂💗</div>
+<div class="heart">
+💙🎂💗
+</div>
 
-<h1>Happy Birthday Doraemon! 🎂🎉</h1>
+<h1>
+Happy Birthday Doraemon! 🎂🎉
+</h1>
 
 <p class="highlight">
 My best friend, My Kuchu Puchuu 😚🫂❤️
 </p>
 
 <p>
-Aaj ka din mere liye bhi special hai, kyunki aaj meri sabse special person ka birthday hai. 🥹❤️
+Aaj ka din mere liye bhi special hai,
+kyunki aaj meri sabse special person ka birthday hai. 🥹❤️
 </p>
 
+
 <!-- BIRTHDAY MUSIC -->
+
 <audio id="birthdayMusic" loop>
+
 <source src="ReelAudio-79268.mp3" type="audio/mpeg">
+
 </audio>
+
 
 <button class="music-btn" onclick="playMusic()">
+
 🎵 Play Birthday Music
+
 </button>
+
 
 <!-- VOICE WISH -->
+
 <audio id="myVoice">
+
 <source src="my special wish.mp3" type="audio/mpeg">
+
 </audio>
 
+
 <button class="voice-btn" onclick="playVoice()">
+
 🎙️ Listen to My Special Wish ❤️
+
 </button>
+
 
 <br>
 
+
 <button onclick="showSurprise()">
+
 🎁 Open Your Surprise
+
 </button>
 
 </div>
 
 
-<!-- SURPRISE -->
+
+<!-- =========================
+     SURPRISE
+========================= -->
+
 <div id="surprise" class="card hidden">
 
-<h2>🎉 Surpriseeee! 🎉</h2>
+<h2>
+🎉 Surpriseeee! 🎉
+</h2>
 
 <p>
 Happy Birthday meri Kuchu Puchuu! 😚🫂❤️
 </p>
 
 <p>
-Hamesha aise hi smile karte rehna, khush rehna aur mujhe kabhi bhoolna mat. 🥹❤️
+Hamesha aise hi smile karte rehna,
+khush rehna aur mujhe kabhi bhoolna mat. 🥹❤️
 </p>
 
+
 <button onclick="showGallery()">
+
 📸 See Our Memories
+
 </button>
 
 </div>
 
 
-<!-- GALLERY -->
+
+<!-- =========================
+     GALLERY
+========================= -->
+
 <div id="gallery" class="card hidden">
 
-<h2>📸 Our Beautiful Memories</h2>
+<h2>
+📸 Our Beautiful Memories
+</h2>
 
 <p>
 Hamari yaadein hamesha special rahengi. 🫂❤️
 </p>
 
-<div class="gallery">
 
-<img src="photo1.jpg" class="photo">
-<img src="photo2.jpg" class="photo">
-<img src="photo3.jpg" class="photo">
-<img src="photo4.jpg" class="photo">
-<img src="photo5.jpg" class="photo">
-<img src="photo6.jpg" class="photo">
-<img src="photo7.webp" class="photo">
-<img src="photo8.jpg" class="photo">
-<img src="photo9.jpg" class="photo">
-<img src="photo10.jpg" class="photo">
+<!-- SLIDESHOW -->
+
+<div class="slideshow">
+
+
+<div class="slide active">
+<img src="photo1.jpg">
+</div>
+
+
+<div class="slide">
+<img src="photo2.jpg">
+</div>
+
+
+<div class="slide">
+<img src="photo3.jpg">
+</div>
+
+
+<div class="slide">
+<img src="photo4.jpg">
+</div>
+
+
+<div class="slide">
+<img src="photo5.jpg">
+</div>
+
+
+<div class="slide">
+<img src="photo6.jpg">
+</div>
+
+
+<div class="slide">
+<img src="photo7.webp">
+</div>
+
+
+<div class="slide">
+<img src="photo8.jpg">
+</div>
+
+
+<div class="slide">
+<img src="photo9.jpg">
+</div>
+
+
+<div class="slide">
+<img src="photo10.jpg">
+</div>
+
+
+<!-- PREVIOUS -->
+
+<button
+class="slide-btn prev"
+onclick="changeSlide(-1)">
+
+❮
+
+</button>
+
+
+<!-- NEXT -->
+
+<button
+class="slide-btn next"
+onclick="changeSlide(1)">
+
+❯
+
+</button>
+
 
 </div>
 
+
+<!-- DOTS -->
+
+<div class="dots">
+
+<span
+class="dot active"
+onclick="currentSlide(1)">
+</span>
+
+<span
+class="dot"
+onclick="currentSlide(2)">
+</span>
+
+<span
+class="dot"
+onclick="currentSlide(3)">
+</span>
+
+<span
+class="dot"
+onclick="currentSlide(4)">
+</span>
+
+<span
+class="dot"
+onclick="currentSlide(5)">
+</span>
+
+<span
+class="dot"
+onclick="currentSlide(6)">
+</span>
+
+<span
+class="dot"
+onclick="currentSlide(7)">
+</span>
+
+<span
+class="dot"
+onclick="currentSlide(8)">
+</span>
+
+<span
+class="dot"
+onclick="currentSlide(9)">
+</span>
+
+<span
+class="dot"
+onclick="currentSlide(10)">
+</span>
+
+</div>
+
+
 <p class="highlight">
-Partners in crime, forever best friends 🫶😂❤️
+
+Partners in crime,
+forever best friends 🫶😂❤️
+
 </p>
 
+
 <button onclick="showLetter()">
+
 💌 Read My Message
+
 </button>
 
 </div>
 
 
-<!-- LETTER -->
+
+<!-- =========================
+     LETTER
+========================= -->
+
 <div id="letter" class="card hidden">
 
-<h2>💌 A Little Message For You</h2>
+<h2>
+💌 A Little Message For You
+</h2>
+
 
 <div class="letter">
 
-<p>Dear Doraemon ❤️,</p>
-
-<br>
-
 <p>
-Pata nahi humari friendship kaise start hui, lekin aaj tu meri life ka ek bahut important part hai. 🥹
+Dear Doraemon ❤️,
 </p>
 
 <br>
 
 <p>
-Tere saath ki hui choti-choti baatein, hasi-mazaak aur pagalpan sab mere liye special hai. 😂❤️
+Pata nahi humari friendship kaise start hui,
+lekin aaj tu meri life ka ek bahut important part hai. 🥹
 </p>
 
 <br>
 
 <p>
-Life mein chahe kitne bhi log aaye, main bas itna chahta hoon ki humari friendship hamesha aise hi bani rahe. 🫂❤️
+Tere saath ki hui choti-choti baatein,
+hasi-mazaak aur pagalpan sab mere liye special hai. 😂❤️
 </p>
 
 <br>
 
 <p>
-Tu hamesha khush rahe, tere saare dreams complete ho aur tere face par hamesha smile rahe. 🥰
+Life mein chahe kitne bhi log aaye,
+main bas itna chahta hoon ki humari friendship
+hamesha aise hi bani rahe. 🫂❤️
 </p>
 
 <br>
 
-<p>Once again...</p>
+<p>
+Tu hamesha khush rahe,
+tere saare dreams complete ho
+aur tere face par hamesha smile rahe. 🥰
+</p>
+
+<br>
+
+<p>
+Once again...
+</p>
 
 <p class="highlight">
+
 Happy Birthday My Kuchu Puchuu! 🎂😚🫂❤️
+
 </p>
 
 </div>
 
+
 <button onclick="finalSurprise()">
+
 ❤️ One Last Surprise
+
 </button>
 
 </div>
 
 
-<!-- FINAL -->
+
+<!-- =========================
+     FINAL SURPRISE
+========================= -->
+
 <div id="final" class="card hidden">
 
-<div class="heart">🥹❤️🫂</div>
+<div class="heart">
 
-<h2>Forever Best Friends ❤️</h2>
+🥹❤️🫂
+
+</div>
+
+
+<h2>
+
+Forever Best Friends ❤️
+
+</h2>
+
 
 <p>
-No matter where life takes us, I hope our friendship stays the same. 🫂
+
+No matter where life takes us,
+I hope our friendship stays the same. 🫂
+
 </p>
+
 
 <br>
 
+
 <p class="highlight">
-My best friend, My Kuchu Puchuu 😚🫂❤️
+
+My best friend,
+My Kuchu Puchuu 😚🫂❤️
+
 </p>
+
 
 <p>
+
 Love you bestie! ❤️
+
 </p>
 
-<div style="font-size:45px;margin-top:20px">
-🎂🎉🎈🎁❤️🫂
+
+<!-- =========================
+     GIFT BOX
+========================= -->
+
+<div class="gift-area">
+
+
+<div
+id="giftBox"
+class="gift-box"
+onclick="openGift()">
+
+🎁
+
+</div>
+
+
+<p class="gift-hint">
+
+👆 Tap the Gift Box 👆
+
+</p>
+
+
+<div
+id="giftMessage"
+class="gift-message hidden">
+
+
+<div style="font-size:45px;">
+
+💖🥹🫂
+
+</div>
+
+
+<h2>
+
+For My Kuchu Puchuu ❤️
+
+</h2>
+
+
+<p>
+
+Tu meri life ke un special logon mein se hai
+jinki presence hamesha smile laati hai. 🥹❤️
+
+</p>
+
+
+<br>
+
+
+<p>
+
+Bas ek hi wish hai...
+humari friendship hamesha aise hi bani rahe. 🫂❤️
+
+</p>
+
+
+<br>
+
+
+<p class="highlight">
+
+Happy Birthday My Kuchu Puchuu! 🎂😚❤️
+
+</p>
+
+
 </div>
 
 </div>
+
+
+<div
+style="font-size:45px;margin-top:20px">
+
+🎂🎉🎈🎁❤️🫂
+
+</div>
+
+</div>
+
+
+
+<!-- FOOTER -->
 
 <div class="footer">
+
 Made with ❤️ specially for my best friend.
-</div>
 
 </div>
+
+
+</div>
+
 
 
 <script>
 
-/* STOP ALL MUSIC AND VOICE */
+
+/* =========================
+   STOP ALL AUDIO
+========================= */
+
 function stopAllAudio(){
 
-  const music = document.getElementById("birthdayMusic");
-  const voice = document.getElementById("myVoice");
+const music =
+document.getElementById("birthdayMusic");
 
-  music.pause();
-  voice.pause();
+const voice =
+document.getElementById("myVoice");
+
+music.pause();
+
+voice.pause();
 
 }
 
 
-/* BIRTHDAY MUSIC */
+/* =========================
+   MUSIC
+========================= */
+
 function playMusic(){
 
-  const music = document.getElementById("birthdayMusic");
-  const voice = document.getElementById("myVoice");
+const music =
+document.getElementById("birthdayMusic");
 
-  voice.pause();
+const voice =
+document.getElementById("myVoice");
 
-  if(music.paused){
+voice.pause();
 
-    music.play();
 
-    document.querySelector(".music-btn").innerHTML =
-    "⏸️ Pause Birthday Music";
+if(music.paused){
 
-  }else{
+music.play();
 
-    music.pause();
+document.querySelector(".music-btn").innerHTML =
+"⏸️ Pause Birthday Music";
 
-    document.querySelector(".music-btn").innerHTML =
-    "🎵 Play Birthday Music";
+}else{
 
-  }
+music.pause();
+
+document.querySelector(".music-btn").innerHTML =
+"🎵 Play Birthday Music";
+
+}
 
 }
 
 
-/* VOICE WISH */
+/* =========================
+   VOICE
+========================= */
+
 function playVoice(){
 
-  const voice = document.getElementById("myVoice");
-  const music = document.getElementById("birthdayMusic");
+const voice =
+document.getElementById("myVoice");
 
-  music.pause();
+const music =
+document.getElementById("birthdayMusic");
 
-  voice.currentTime = 0;
+music.pause();
 
-  voice.play();
+voice.currentTime=0;
 
-  confetti();
+voice.play();
+
+confetti();
 
 }
 
 
-/* SURPRISE */
+/* =========================
+   SURPRISE
+========================= */
+
 function showSurprise(){
 
-  stopAllAudio();
+stopAllAudio();
 
-  document.getElementById("surprise").classList.remove("hidden");
+document.getElementById("surprise")
+.classList.remove("hidden");
 
-  document.getElementById("surprise")
-  .scrollIntoView({behavior:"smooth"});
+document.getElementById("surprise")
+.scrollIntoView({
+behavior:"smooth"
+});
 
-  confetti();
+confetti();
 
 }
 
 
-/* GALLERY */
+/* =========================
+   GALLERY
+========================= */
+
 function showGallery(){
 
-  stopAllAudio();
+stopAllAudio();
 
-  document.getElementById("gallery").classList.remove("hidden");
+document.getElementById("gallery")
+.classList.remove("hidden");
 
-  document.getElementById("gallery")
-  .scrollIntoView({behavior:"smooth"});
+document.getElementById("gallery")
+.scrollIntoView({
+behavior:"smooth"
+});
 
-  confetti();
+confetti();
 
 }
 
 
-/* LETTER */
+/* =========================
+   LETTER
+========================= */
+
 function showLetter(){
 
-  stopAllAudio();
+stopAllAudio();
 
-  document.getElementById("letter").classList.remove("hidden");
+document.getElementById("letter")
+.classList.remove("hidden");
 
-  document.getElementById("letter")
-  .scrollIntoView({behavior:"smooth"});
+document.getElementById("letter")
+.scrollIntoView({
+behavior:"smooth"
+});
 
-  confetti();
+confetti();
 
 }
 
 
-/* FINAL SURPRISE */
+/* =========================
+   FINAL
+========================= */
+
 function finalSurprise(){
 
-  stopAllAudio();
+stopAllAudio();
 
-  document.getElementById("final").classList.remove("hidden");
+document.getElementById("final")
+.classList.remove("hidden");
 
-  document.getElementById("final")
-  .scrollIntoView({behavior:"smooth"});
+document.getElementById("final")
+.scrollIntoView({
+behavior:"smooth"
+});
 
-  confetti();
+confetti();
 
 }
 
 
-/* CONFETTI */
+/* =========================
+   SLIDESHOW
+========================= */
+
+let slideIndex=1;
+
+let slideTimer;
+
+
+function showSlide(n){
+
+let slides =
+document.querySelectorAll(".slide");
+
+let dots =
+document.querySelectorAll(".dot");
+
+
+if(n>slides.length){
+
+slideIndex=1;
+
+}
+
+
+if(n<1){
+
+slideIndex=slides.length;
+
+}
+
+
+slides.forEach(function(slide){
+
+slide.classList.remove("active");
+
+});
+
+
+dots.forEach(function(dot){
+
+dot.classList.remove("active");
+
+});
+
+
+slides[slideIndex-1]
+.classList.add("active");
+
+
+dots[slideIndex-1]
+.classList.add("active");
+
+}
+
+
+/* NEXT / PREVIOUS */
+
+function changeSlide(n){
+
+slideIndex=slideIndex+n;
+
+showSlide(slideIndex);
+
+resetSlideTimer();
+
+}
+
+
+/* DIRECT PHOTO */
+
+function currentSlide(n){
+
+slideIndex=n;
+
+showSlide(slideIndex);
+
+resetSlideTimer();
+
+}
+
+
+/* AUTO SLIDE */
+
+function autoSlide(){
+
+slideIndex++;
+
+showSlide(slideIndex);
+
+}
+
+
+/* RESET TIMER */
+
+function resetSlideTimer(){
+
+clearInterval(slideTimer);
+
+slideTimer =
+setInterval(autoSlide,4000);
+
+}
+
+
+/* START SLIDESHOW */
+
+slideTimer =
+setInterval(autoSlide,4000);
+
+
+/* =========================
+   GIFT BOX
+========================= */
+
+function openGift(){
+
+const gift =
+document.getElementById("giftBox");
+
+const message =
+document.getElementById("giftMessage");
+
+
+/* Prevent clicking again */
+
+if(gift.classList.contains("opened")){
+
+return;
+
+}
+
+
+gift.classList.add("opened");
+
+
+setTimeout(function(){
+
+message.classList.remove("hidden");
+
+confetti();
+
+},600);
+
+}
+
+
+/* =========================
+   CONFETTI
+========================= */
+
 function confetti(){
 
-  const emojis = [
-    "🎉","❤️","💙","💗",
-    "✨","🎈","🎂","🥳"
-  ];
+const emojis=[
 
-  for(let i=0;i<40;i++){
+"🎉",
+"❤️",
+"💙",
+"💗",
+"✨",
+"🎈",
+"🎂",
+"🥳"
 
-    let item = document.createElement("div");
+];
 
-    item.className = "confetti";
 
-    item.innerText =
-    emojis[Math.floor(Math.random()*emojis.length)];
+for(let i=0;i<40;i++){
 
-    item.style.left =
-    Math.random()*100+"vw";
+let item =
+document.createElement("div");
 
-    item.style.animationDuration =
-    (2+Math.random()*3)+"s";
 
-    document.body.appendChild(item);
+item.className="confetti";
 
-    setTimeout(()=>{
-      item.remove();
-    },5000);
 
-  }
+item.innerText =
+emojis[
+Math.floor(
+Math.random()*emojis.length
+)
+];
+
+
+item.style.left =
+Math.random()*100+"vw";
+
+
+item.style.animationDuration =
+(2+Math.random()*3)+"s";
+
+
+document.body.appendChild(item);
+
+
+setTimeout(function(){
+
+item.remove();
+
+},5000);
+
+}
 
 }
 
 </script>
 
 </body>
-</html>
+  </html>
