@@ -85,6 +85,16 @@ button:hover{
   margin-bottom:10px;
 }
 
+/* MUSIC */
+
+.music-box{
+  margin:20px 0;
+}
+
+.music-btn{
+  background:linear-gradient(135deg,#ff4081,#ff8a00);
+}
+
 /* PHOTO GALLERY */
 
 .gallery{
@@ -100,14 +110,14 @@ button:hover{
   object-fit:cover;
   border-radius:18px;
   box-shadow:0 5px 15px rgba(0,0,0,.15);
-  transition:.3s;
+  transition:.4s;
 }
 
 .photo:hover{
-  transform:scale(1.03);
+  transform:scale(1.04) rotate(1deg);
 }
 
-/* MESSAGE */
+/* LETTER */
 
 .letter{
   text-align:left;
@@ -189,7 +199,7 @@ button:hover{
 
 <div class="container">
 
-<!-- MAIN -->
+<!-- MAIN CARD -->
 
 <div class="card">
 
@@ -205,6 +215,18 @@ My best friend, My Kuchu Puchuu 😚🫂❤️
 Aaj ka din mere liye bhi special hai,
 kyunki aaj meri sabse special person ka birthday hai. 🥹❤️
 </p>
+
+<div class="music-box">
+
+<button class="music-btn" onclick="playMusic()">
+🎵 Play Birthday Music
+</button>
+
+<audio id="birthdayMusic" loop>
+<source src="ReelAudio-79268.mp3" type="audio/mpeg">
+</audio>
+
+</div>
 
 <button onclick="showSurprise()">
 🎁 Open Your Surprise
@@ -247,16 +269,16 @@ Hamari yaadein hamesha special rahengi. 🫂❤️
 
 <div class="gallery">
 
-<img src="photo1.jpg" class="photo">
-<img src="photo2.jpg" class="photo">
-<img src="photo3.jpg" class="photo">
-<img src="photo4.jpg" class="photo">
-<img src="photo5.jpg" class="photo">
-<img src="photo6.jpg" class="photo">
-<img src="photo7.webp" class="photo">
-<img src="photo8.jpg" class="photo">
-<img src="photo9.jpg" class="photo">
-<img src="photo10.jpg" class="photo">
+<img src="photo1.jpg" class="photo" alt="Memory 1">
+<img src="photo2.jpg" class="photo" alt="Memory 2">
+<img src="photo3.jpg" class="photo" alt="Memory 3">
+<img src="photo4.jpg" class="photo" alt="Memory 4">
+<img src="photo5.jpg" class="photo" alt="Memory 5">
+<img src="photo6.jpg" class="photo" alt="Memory 6">
+<img src="photo7.webp" class="photo" alt="Memory 7">
+<img src="photo8.jpg" class="photo" alt="Memory 8">
+<img src="photo9.jpg" class="photo" alt="Memory 9">
+<img src="photo10.jpg" class="photo" alt="Memory 10">
 
 </div>
 
@@ -279,7 +301,9 @@ Partners in crime, forever best friends 🫶😂❤️
 
 <div class="letter">
 
-<p>Dear Doraemon ❤️,</p>
+<p>
+Dear Doraemon ❤️,
+</p>
 
 <br>
 
@@ -370,6 +394,28 @@ Made with ❤️ specially for my best friend.
 
 
 <script>
+
+function playMusic(){
+
+const music=document.getElementById("birthdayMusic");
+
+if(music.paused){
+
+music.play();
+
+document.querySelector(".music-btn").innerHTML =
+"⏸️ Pause Music";
+
+}else{
+
+music.pause();
+
+document.querySelector(".music-btn").innerHTML =
+"🎵 Play Birthday Music";
+
+}
+
+}
 
 function showSurprise(){
 
